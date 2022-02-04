@@ -12,7 +12,8 @@ io.on('connection', (socket) => {
     console.log('a user connected');  
     socket.on('disconnect', () => {    console.log('user disconnected');  });
     socket.on('name', msg => { 
-      io.emit('chat message', "Welcome " + msg);
+      io.emit('chat message', "Welcome " + msg + " " + new Date().toLocaleTimeString());
+      io.emit('chat message', "Play Rock, Paper, Scissors with other users using the commands /r, /p, and /s");
     });
     socket.on('chat message', (msg,sender) => { 
       //parse message for rock paper scissors logic
